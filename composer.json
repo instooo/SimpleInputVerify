@@ -1,0 +1,17 @@
+{
+    "name": "mohyz/simple-input-verify",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "吴越小岗",
+            "email": "mohyz@163.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Mohyz\\":"src/",
+            "Mohyz\\Validator":"src/Validator"
+        }
+    },
+    "require": {}
+}
