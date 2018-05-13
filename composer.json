@@ -9,8 +9,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Mohyz\\":"src/",
-            "Mohyz\\Validator":"src/Validator"
+            "Mohyz\\":"src/"
         }
     },
     "require": {}

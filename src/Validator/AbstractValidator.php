@@ -1,0 +1,44 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: mohyz
+ * Date: 2018/5/13
+ * Time: 16:28
+ */
+
+namespace Mohyz\Validator;
+
+
+abstract class AbstractValidator
+{
+    protected $errorMsg;
+    protected $input;
+    protected $fieldKey;
+    protected $args;
+    protected $localKey;
+    protected $value;
+
+    public function __construct(array $errorMsg, array $input, $fieldKey, $localKey, $args)
+    {
+        $this->errorMsg = $errorMsg;
+        $this->input = $input;
+        $this->fieldKey = $fieldKey;
+        $this->args = $args;
+        $this->localKey = $localKey;
+
+        $this->value = isset($input[$fieldKey]) ? $input[$fieldKey] : null;
+
+    }
+
+    /**
+     * @return VerifyResult
+     */
+    abstract public function verify();
+
+    protected function errorMsgReplace($msg)
+    {
+        $msg = str_replace("{field}", $this->localKey ? $this->localKey : $this->fieldKey, $msg);
+        $msg = str_replace("{value}", $this->value, $msg);
+        return $msg;
+    }
+}
