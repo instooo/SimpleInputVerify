@@ -42,11 +42,11 @@ abstract class AbstractValidator
 
     protected function errorMsgReplace($msg, array $other = [])
     {
-        $msg = str_replace('{field}', $this->localKey ? $this->localKey : $this->fieldKey, $msg);
+        $msg = str_replace('{field}', $this->localKey ?: $this->fieldKey, $msg);
         $msg = str_replace('{value}', $this->value, $msg);
 
         foreach ($other as $key => $value) {
-            $msg = str_replace("{$key}", $value, $msg);
+            $msg = str_replace("{{$key}}", $value, $msg);
         }
 
         return $msg;

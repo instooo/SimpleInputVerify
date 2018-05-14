@@ -9,9 +9,6 @@
 
 namespace Mohyz;
 
-
-use Throwable;
-
 class ValidatorException extends \Exception
 {
 
@@ -20,7 +17,7 @@ class ValidatorException extends \Exception
     private $failedValidatorName;
 
 
-    public function __construct($message = "", $fieldKey = "", $localFieldKey)
+    public function __construct($message = "", $fieldKey = "", $localFieldKey="")
     {
         $this->fieldKey = $fieldKey;
         $this->localFieldKey = $localFieldKey;
