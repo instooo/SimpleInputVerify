@@ -18,6 +18,12 @@ class MinValidator extends AbstractValidator
      */
     public function verify()
     {
-        // TODO: Implement verify() method.
+        if ($this->value < $this->args[0]) {
+
+            $msg = $this->errorMsgReplace($this->errorMsg[0], ['min' => $this->args[0]]);
+
+            return new VerifyResult(false, $msg);
+        }
+        return new VerifyResult(true);
     }
 }
