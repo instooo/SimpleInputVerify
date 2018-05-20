@@ -12,7 +12,7 @@ return [
         '{field} 值 {value} 大于 {max}'
     ],
     'min' => [
-        '{field} 值 {value} 小于 {max}'
+        '{field} 值 {value} 小于 {min}'
     ],
 
     'ip' => [
@@ -37,6 +37,9 @@ return [
 
     'require' => [
         '{field} 不存在'
+    ],
+    'notRequire' => [
+        ''
     ],
 
     'length' => [
