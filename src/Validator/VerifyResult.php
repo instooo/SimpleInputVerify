@@ -15,10 +15,13 @@ class VerifyResult
 
     private $msg = "";
 
-    public function __construct($status,$msg = "")
+    private $verifyContinue = true;
+
+    public function __construct($status,$msg = "",$verifyContinue = true)
     {
         $this->status = $status;
         $this->msg = $msg;
+        $this->verifyContinue = $verifyContinue;
     }
 
     /**
@@ -44,7 +47,7 @@ class VerifyResult
     /**
      * @return bool
      */
-    public function isStatus()
+    public function getStatus()
     {
         return $this->status;
     }
@@ -55,6 +58,22 @@ class VerifyResult
     public function getMsg()
     {
         return $this->msg;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getVerifyContinue()
+    {
+        return $this->verifyContinue;
+    }
+
+    /**
+     * @param bool $verifyContinue
+     */
+    public function setVerifyContinue($verifyContinue)
+    {
+        $this->verifyContinue = $verifyContinue;
     }
 
 

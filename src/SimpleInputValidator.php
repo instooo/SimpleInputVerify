@@ -26,9 +26,9 @@ class SimpleInputValidator
     private $validErrorRes = [];
 
 
-    public function __construct(array $input, array $verifyRules, $interrupt = true)
+    public function __construct(array $input, array $verifyRules, $interrupt = true, $lang = "zh_cn")
     {
-        $this->lang = require_once __DIR__ . '\Lang\zh_cn.php';
+        $this->lang = require_once __DIR__ . "\Lang\{$lang}.php";
         $this->reset($input, $verifyRules, $interrupt);
     }
 
@@ -37,6 +37,8 @@ class SimpleInputValidator
         $this->input = $input;
         $this->rules = $verifyRules;
         $this->interrupt = $interrupt;
+
+        $this->validErrorRes = [];
     }
 
     public function validate()
@@ -77,24 +79,38 @@ class SimpleInputValidator
                     );
                 } else {
 
-                    $validator = $this->validators[$validatorName] = ValidatorFactory::getValidator($validatorName,
+                    $validator = $this->validators[$validatorName] = ValidatorFactory::getValidator(
+                        $validatorName,
                         [$this->lang[$ruleName], $this->input, $fieldKey, $fieldLocalKey, $args]
                     );
                 }
 
                 $verifyRes = $validator->verify();
 
-                if (!$verifyRes->isStatus()) {
+                if (!$verifyRes->getStatus()) {
                     if ($this->interrupt) {
                         throw new ValidatorException($verifyRes->getMsg(), $fieldKey, $fieldLocalKey);
                     } else {
                         $this->validErrorRes[$fieldKey] = $verifyRes;
                     }
                 }
+
+                if (!$verifyRes->getVerifyContinue()) {
+                    break;
+                }
+
             }
         }
         return true;
 
+    }
+
+    /**
+     * @return array
+     */
+    public function getValidErrorRes()
+    {
+        return $this->validErrorRes;
     }
 
 

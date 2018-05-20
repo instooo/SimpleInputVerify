@@ -31,6 +31,10 @@ return [
         '{field} 值 {value} 不是一个数字'
     ],
 
+    'string' => [
+        '{field} 值 {value} 不是一个字符串'
+    ],
+
     'require' => [
         '{field} 不存在'
     ],
@@ -39,6 +43,14 @@ return [
         '{field} 长度不等于 {args}',
         '{field} 长度大于 {args}',
         '{field} 长度小于 {args}'
-    ]
+    ],
+
+    'in'=>[
+        '{field} 值 {value} 不在 {args} 内'
+    ],
+
+    'notIn'=>[
+        '{field} 值 {value} 在 {args} 内'
+    ],
 
 ];
