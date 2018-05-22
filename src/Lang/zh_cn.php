@@ -48,12 +48,20 @@ return [
         '{field} 长度小于 {args}'
     ],
 
-    'in'=>[
+    'in' => [
         '{field} 值 {value} 不在 {args} 内'
     ],
 
-    'notIn'=>[
+    'notIn' => [
         '{field} 值 {value} 在 {args} 内'
     ],
+
+    'regex' => [
+        '{field} 值 {value} 与表达式 {regex} 不匹配'
+    ],
+
+    'notEmpty' => [
+        '{field} 值为空'
+    ]
 
 ];
