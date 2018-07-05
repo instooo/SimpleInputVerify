@@ -18,6 +18,9 @@ class DateValidator extends AbstractValidator
      */
     public function verify()
     {
-        // TODO: Implement verify() method.
+        if (strtotime($this->value)!==false) {
+            return new VerifyResult(true);
+        }
+        return new VerifyResult(false, $this->errorMsgReplace($this->errorMsg[0]));
     }
 }

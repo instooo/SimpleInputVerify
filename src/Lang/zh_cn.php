@@ -62,6 +62,9 @@ return [
 
     'notEmpty' => [
         '{field} 值为空'
-    ]
+    ],
+    'date' => [
+        '{field} 值 {value} 不是一个日期'
+    ],
 
 ];
