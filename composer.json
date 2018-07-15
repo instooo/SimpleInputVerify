@@ -7,10 +7,13 @@
             "email": "mohyz@163.com"
         }
     ],
+    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "Mohyz\\":"src/"
         }
     },
-    "require": {}
+    "require": {
+        "php": ">=5.4.0"
+    }
 }
