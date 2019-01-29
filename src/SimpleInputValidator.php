@@ -28,7 +28,7 @@ class SimpleInputValidator
 
     public function __construct(array $input, array $verifyRules, $interrupt = true, $lang = "zh_cn")
     {
-        $this->lang = require_once __DIR__ . "\Lang\\{$lang}.php";
+        $this->lang = require_once __DIR__ . DIRECTORY_SEPARATOR . 'Lang' . DIRECTORY_SEPARATOR . $lang . '.php';
         $this->reset($input, $verifyRules, $interrupt);
     }
 
